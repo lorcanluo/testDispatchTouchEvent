@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="github.lorcanluo.testdispatch.MainActivity">
+
+    <github.lorcanluo.testdispatch.MyLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="#ff0000"
+        android:padding="20dp">
+
+        <github.lorcanluo.testdispatch.MyLinearLayout1
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00ff00"
+            android:padding="30dp">
+
+            <github.lorcanluo.testdispatch.MyLinearLayout2
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#0000ff">
+
+                <github.lorcanluo.testdispatch.MyTestView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:background="#ffffff"
+                    android:text="我就是小打杂" />
+
+            </github.lorcanluo.testdispatch.MyLinearLayout2>
+
+        </github.lorcanluo.testdispatch.MyLinearLayout1>
+
+
+    </github.lorcanluo.testdispatch.MyLinearLayout>
+
+</RelativeLayout>

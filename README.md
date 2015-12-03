@@ -286,4 +286,13 @@ dispatchTouchEvent（）函数中返回true以后，表示事件已经被"消耗
 ![phone](https://raw.githubusercontent.com/lorcanluo/myHugoProject/master/myImage/touch/layout1_intercept_return_true.png)
 
 
+## 日常处理Touch冲突的常用办法
+在日常工作中，我们还是有可能遇到touch事件冲突的问题的，那么有了上面的知识，我们可以通过以上函数处理的组合来处理事件冲突。
+
+1. 如果我们想阻断子View对touch事件的处理，我们可以通过onInterceptTouchEvent（）方法来进行判断是否阻断
+2. 如果我们想让父类不再处理onTouchEvent（）事件，我们可以通过在onTouchEvent（）中返回true来进行
+
+但是还可能有更为复杂的情况，这就需要大家去动态的算法处理了。。。。
+
+
 本文的例子放在了：https://github.com/lorcanluo/testDispatchTouchEvent

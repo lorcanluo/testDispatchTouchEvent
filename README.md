@@ -1,9 +1,9 @@
 # Touch事件的分发机制
-网上很多用源码来分析touch事件机制的文章，但是由于View和ViewGroup事件分发和android系统事件分开有关系，所以看起来有点云里雾里的，下面自己写了一个例子来说嘛touch分发的原理，和我们工作中遇到此类问题应该怎么处理这类事件，首先说说ViewGroup和View下的三个相关的函数：
+网上很多用源码来分析touch事件机制的文章，但是由于View和ViewGroup事件分发和android系统事件分开有关系，所以看起来有点云里雾里的，下面自己写了一个例子来说嘛touch分发的原理，和我们工作中遇到此类问题应该怎么处理这类事件，首先必须知道的一点是ViewGroup是继承至ViewG的，这个你们可以去源码中看看，接下来我们来说明ViewGroup和View下的三个相关Touch分发的函数
 
-* View和ViewGroup下都实现了dispatchTouchEvent（），该方法用户touch事件的分发。
-* View比ViewGroup多一个方法叫onTouchEvent（），该方法就是用于具体的touch事件处理。
-* ViewGroup比View多一个方法叫onInterceptTouchEvent（），该方法用于拦截touch事件。
+* **dispatchTouchEvent（）**: 该方法用于touch事件的分发， view和viewgroup都实现了该方法
+* **onTouchEvent（）**: 该方法就是用于具体的touch事件处理，这个方法实现在View中。
+* **onInterceptTouchEvent（）**: 该方法用于拦截touch事件，这个方法只有ViewGroup有。
 
 接下来我们先看看源码中的官方说明：
 
@@ -285,7 +285,6 @@ dispatchTouchEvent（）函数中返回true以后，表示事件已经被"消耗
 
 ![phone](https://raw.githubusercontent.com/lorcanluo/myHugoProject/master/myImage/touch/layout1_intercept_return_true.png)
 
-
 ## 日常处理Touch冲突的常用办法
 在日常工作中，我们还是有可能遇到touch事件冲突的问题的，那么有了上面的知识，我们可以通过以上函数处理的组合来处理事件冲突。
 
@@ -296,3 +295,4 @@ dispatchTouchEvent（）函数中返回true以后，表示事件已经被"消耗
 
 
 本文的例子放在了：https://github.com/lorcanluo/testDispatchTouchEvent
+
